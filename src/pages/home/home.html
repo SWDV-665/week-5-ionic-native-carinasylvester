@@ -1,59 +1,51 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Groceries
-    </ion-title>
-  </ion-toolbar>
+  <ion-navbar>
+    <ion-title>Groceries</ion-title>
+  </ion-navbar>
 </ion-header>
 
-<!-- List of Sliding Items -->
-<!-- Item 1 -->
+
+<!-- Item 1-->
 <ion-content padding>
   <ion-list>
     <ion-item-sliding>
       <ion-item>
-        <ion-label side="start">
-          <h2>Milk</h2>
-          <br>
-          <h3>1</h3>
-        </ion-label>
+        <h2>Milk</h2>
+        <p>1</p>
       </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="success" onClick="share(item)">
-          <ion-icon name="trash" size="large"></ion-icon><br>
-        </ion-item-option>
+      <ion-item-options>
+        <button ion-button color="secondary" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
       </ion-item-options>
     </ion-item-sliding>
 
     <!-- Item 2 -->
     <ion-item-sliding>
       <ion-item>
-        <ion-label side="start">
-          <h2>Eggs</h2>
-          <br>
-          <h3>12</h3>
-        </ion-label>
+        <h2>Bread</h2>
+        <p>3</p>
       </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="success" onClick="share(item)">
-          <ion-icon name="trash" size="large"></ion-icon><br>
-        </ion-item-option>
+      <ion-item-options>
+        <button ion-button color="secondary" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
       </ion-item-options>
     </ion-item-sliding>
 
     <!-- Item 3 -->
     <ion-item-sliding>
       <ion-item>
-        <ion-label side="start">
-          <h2>Bread</h2>
-          <br>
-          <h3>1</h3>
-        </ion-label>
+        <h2>Eggs</h2>
+        <p>12</p>
       </ion-item>
-      <ion-item-options side="end">
-        <ion-item-option color="success" onClick="share(item)">
-          <ion-icon name="trash" size="large"></ion-icon><br>
-        </ion-item-option>
+      <ion-item-options>
+        <button ion-button color="secondary" icon-start>
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
