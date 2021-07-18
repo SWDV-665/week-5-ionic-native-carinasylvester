@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
@@ -18,16 +19,16 @@ export class HomePage {
       name: "Bread",
       quantity: 1
     },
-  {
+    {
       name: "Eggs",
       quantity: 12
     },
-  {
+    {
       name: "Banana",
       quantity: 3
     },
   ];
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController) {
 
   }
 
@@ -40,7 +41,37 @@ export class HomePage {
     toast.present();
   }
 
-  addItem(){
+  addItem() {
     console.log("Adding Item");
+    this.showAddItemPrompt();
+  }
+
+
+  showAddItemPrompt() {
+    const prompt = this.alertCtrl.create({
+      title: "Login",
+      message: "Enter a name for this new album you're so keen on adding",
+      inputs: [
+        {
+          name: "title",
+          placeholder: "Title",
+        },
+      ],
+      buttons: [
+        {
+          text: "Cancel",
+          handler: data => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log('Save clicked');
+          }
+        }
+      ]
+    });
+    prompt.present();
   }
 }
