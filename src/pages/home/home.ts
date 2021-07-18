@@ -69,9 +69,10 @@ export class HomePage {
           }
         },
         {
-          text: 'Save',
-          handler: data => {
-            console.log('Save clicked');
+          text: "Save",
+          handler: item => {
+            console.log("Save clicked", item);
+            this.items.push(item);
           }
         }
       ]
