@@ -27,11 +27,20 @@ export class HomePage {
       quantity: 3
     },
   ];
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController) {
 
   }
 
   removeItem(item) {
     console.log("Removing Item")
+    const toast = this.toastCtrl.create({
+      message: "Removing Item - " + item.name + " ...",
+      duration: 3000
+    });
+    toast.present();
+  }
+
+  addItem(){
+    console.log("Adding Item");
   }
 }
