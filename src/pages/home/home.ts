@@ -49,12 +49,16 @@ export class HomePage {
 
   showAddItemPrompt() {
     const prompt = this.alertCtrl.create({
-      title: "Login",
-      message: "Enter a name for this new album you're so keen on adding",
+      title: "Add Item",
+      message: "Please enter item...",
       inputs: [
         {
-          name: "title",
-          placeholder: "Title",
+          name: "name",
+          placeholder: "Name",
+        },
+        {
+          name: "quantity",
+          placeholder: "Quantity",
         },
       ],
       buttons: [
