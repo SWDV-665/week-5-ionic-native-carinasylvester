@@ -4,11 +4,9 @@
   </ion-navbar>
 </ion-header>
 
-
-<!-- Item 1-->
 <ion-content padding>
+  
   <ion-list>
-
     <ion-item-sliding *ngFor="let item of items; let i = index">
       <ion-item>
         <h2>{{item.name}}</h2>
@@ -32,3 +30,4 @@
       <ion-icon name="add"></ion-icon>
     </button>
   </ion-fab>
+</ion-content>

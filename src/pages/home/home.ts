@@ -46,11 +46,11 @@ export class HomePage {
   editItem(item, index) {
     console.log("Edit Item -", item, index);
     const toast = this.toastCtrl.create({
-      message: "Removing Item - " + index + " ...",
+      message: "Editing Item - " + index + " ...",
       duration: 3000
     });
     toast.present();
-
+    this.showEditItemPrompt(item, index);
   }
 
   addItem() {
@@ -58,11 +58,42 @@ export class HomePage {
     this.showAddItemPrompt();
   }
 
-
   showAddItemPrompt() {
     const prompt = this.alertCtrl.create({
       title: "Add Item",
       message: "Please enter item...",
+      inputs: [
+        {
+          name: "name",
+          placeholder: "Name",
+        },
+        {
+          name: "quantity",
+          placeholder: "Quantity",
+        },
+      ],
+      buttons: [
+        {
+          text: "Cancel",
+          handler: data => {
+            console.log("Cancel clicked");
+          }
+        },
+        {
+          text: "Save",
+          handler: item => {
+            console.log("Save clicked", item);
+            this.items.push(item);
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
+  showEditItemPrompt(item, index) {
+    const prompt = this.alertCtrl.create({
+      title: "Edit Item",
+      message: "Please edit item...",
       inputs: [
         {
           name: "name",
