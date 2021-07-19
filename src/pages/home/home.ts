@@ -32,13 +32,25 @@ export class HomePage {
 
   }
 
-  removeItem(item) {
-    console.log("Removing Item")
+  removeItem(item, index) {
+    console.log("Removing Item -", item, index);
     const toast = this.toastCtrl.create({
-      message: "Removing Item - " + item.name + " ...",
+      message: "Removing Item - " + index + " ...",
       duration: 3000
     });
     toast.present();
+
+    this.items.splice(index, 1);
+  }
+
+  editItem(item, index) {
+    console.log("Edit Item -", item, index);
+    const toast = this.toastCtrl.create({
+      message: "Removing Item - " + index + " ...",
+      duration: 3000
+    });
+    toast.present();
+
   }
 
   addItem() {
