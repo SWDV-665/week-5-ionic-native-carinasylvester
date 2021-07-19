@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ToastController } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
+import { GroceriesServiceProvider } from '../../providers/groceries-service/groceries-service';
 
 @Component({
   selector: 'page-home',
@@ -10,26 +11,13 @@ import { AlertController } from 'ionic-angular';
 export class HomePage {
   title = "Grocery List";
 
-  items = [
-    {
-      name: "Milk",
-      quantity: 2
-    },
-    {
-      name: "Bread",
-      quantity: 1
-    },
-    {
-      name: "Eggs",
-      quantity: 12
-    },
-    {
-      name: "Banana",
-      quantity: 3
-    },
-  ];
-  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController) {
+  
+  constructor(public navCtrl: NavController, public toastCtrl: ToastController, public alertCtrl: AlertController, public dataService: GroceriesServiceProvider) {
 
+  }
+
+  loadItems() {
+    return this.dataService.getItems();
   }
 
   removeItem(item, index) {
@@ -39,8 +27,7 @@ export class HomePage {
       duration: 3000
     });
     toast.present();
-
-    this.items.splice(index, 1);
+    this.dataService.removeItem(index);
   }
 
   editItem(item, index) {
@@ -83,7 +70,7 @@ export class HomePage {
           text: "Save",
           handler: item => {
             console.log("Save clicked", item);
-            this.items.push(item);
+            this.dataService.addItem(item);
           }
         }
       ]
@@ -98,10 +85,12 @@ export class HomePage {
         {
           name: "name",
           placeholder: "Name",
+          value: item.name
         },
         {
           name: "quantity",
           placeholder: "Quantity",
+          value: item.quantity
         },
       ],
       buttons: [
@@ -115,7 +104,7 @@ export class HomePage {
           text: "Save",
           handler: item => {
             console.log("Save clicked", item);
-            this.items.push(item);
+            this.dataService.editItem[index] = item;
           }
         }
       ]
