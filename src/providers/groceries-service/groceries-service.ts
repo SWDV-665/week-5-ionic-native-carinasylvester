@@ -10,26 +10,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class GroceriesServiceProvider {
 
-  items = [
-    {
-      name: "Milk",
-      quantity: 2
-    },
-    {
-      name: "Bread",
-      quantity: 1
-    },
-    {
-      name: "Eggs",
-      quantity: 12
-    },
-    {
-      name: "Banana",
-      quantity: 3
-    },
-  ];
+  items = [];
+
   constructor() {
-    console.log('Hello GroceriesServiceProvider Provider');
+    console.log("Hello GroceriesServiceProvider Provider");
   }
 
   getItems() {
@@ -40,8 +24,8 @@ export class GroceriesServiceProvider {
     this.items.splice(index, 1);
   }
 
-  addItem(index) {
-    this.items.push(index);
+  addItem(item) {
+    this.items.push(item);
   }
 
   editItem(item, index) {
