@@ -32,6 +32,16 @@ export class HomePage {
     this.dataService.removeItem(index);
   }
 
+  shareItem(item, index) {
+    console.log("Sharing Item -", item, index);
+    const toast = this.toastCtrl.create({
+      message: "Sharing Item - " + index + " ...",
+      duration: 3000
+    });
+    toast.present();
+
+  }
+
   editItem(item, index) {
     console.log("Edit Item -", item, index);
     const toast = this.toastCtrl.create({
